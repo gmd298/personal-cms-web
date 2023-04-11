@@ -40,7 +40,7 @@ body {
 }
 
 .SidebarList #active {
-  background-color: darkcyan;
+  background-color: rgb(0, 179, 179);
 }
 
 .row #icon {
