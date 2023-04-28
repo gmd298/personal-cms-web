@@ -1,6 +1,8 @@
 .App {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 body {
@@ -9,47 +11,108 @@ body {
 }
 
 .Sidebar {
+  width: 200px;
   height: 100%;
-  width: 250px;
-  background-color: darkslategrey;
+  background-color: #f58383;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  overflow-x: hidden;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .SidebarList {
-  height: auto;
+  list-style-type: none;
   padding: 0;
-  width: 100%;
+  margin: 0;
 }
 
-.SidebarList .row {
-  width: 100%;
-  height: 50px;
-  border: .5px solid black;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.row {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.row:hover {
+  background-color: #bd1d1d;
+}
+
+#active {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+#icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+#title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  margin-left: 200px;
+  width: calc(100% - 200px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  }
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 16px;
+  }
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
-.SidebarList .row:hover {
-  cursor: pointer;
-  background-color: darkcyan;
-}
+.card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+  }
 
-.SidebarList #active {
-  background-color: darkcyan;
-}
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  }
 
-.row #icon {
-  flex: 30%;
-  display: grid;
-  place-items: center;
-}
-
-.row #title {
-  flex: 70%;
-
-}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
